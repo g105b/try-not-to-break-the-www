@@ -1,0 +1,6 @@
+/.sass-cache
+/.idea
+/vendor
+*.phar
+/www/style.css
+/www/script.css
