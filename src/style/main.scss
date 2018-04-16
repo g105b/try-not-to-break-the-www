@@ -1,0 +1,100 @@
+html, body {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #eee;
+	font-family: sans-serif;
+	font-weight: lighter;
+	color: #555;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-align: center;
+}
+h2 {
+	font-weight: normal;
+	font-size: 0.8rem;
+}
+
+header {
+	padding-bottom: 2rem;
+}
+
+footer {
+	padding-top: 2rem;
+	text-align: center;
+
+	button {
+		position: relative;
+		display: block;
+		margin: 0 auto;
+		width: 3rem;
+		height: 3rem;
+		color: white;
+		border: none;
+		border-radius: 3rem;
+		background: desaturate(lime, 60%);
+
+		&::before {
+			position: relative;
+			content: "➤";
+			font-size: 1rem;
+		}
+		&:not(.validation-status) {
+			&::before {
+				left: 1px;
+			}
+		}
+
+		.validation-success {
+			&::before {
+				content: "✔";
+			}
+		}
+		.validation-error {
+			&::before {
+				content: "✘";
+			}
+		}
+		>span {
+			display: none;
+		}
+
+	}
+}
+
+form {
+	width: 24rem;
+	padding: 4rem;
+	background: #fff;
+	border: 1px solid rgba(darkblue, 0.2);
+	border-radius: 4px;
+}
+
+label {
+	>span {
+		display: block;
+		font-size: 0.8rem;
+		font-weight: bold;
+		padding: 0.5rem;
+	}
+}
+
+input {
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.5rem;
+	color: #555;
+	border: 1px solid rgba(darkblue, 0.2);
+	border-radius: 4px;
+	outline: none;
+
+	&:hover, &:focus {
+		border-color: rgba(blue, 0.5);
+	}
+}
