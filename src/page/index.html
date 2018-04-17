@@ -2,12 +2,13 @@
 <html>
 <head>
 	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>Demo app: Try not to break the WWW</title>
 	<link rel="stylesheet" href="/style.css" />
 </head>
 <body>
 
-<form method="post">
+<form id="example-form" method="post">
 	<section>
 		<header>
 			<h1>Example sign up form</h1>
@@ -30,10 +31,76 @@
 			       placeholder="e.g. ••••••••••••"/>
 		</label>
 	</section>
+	<section>
+		<header>
+			<h1>Part 2</h1>
+			<h2>Describe a simple piece of functionality here</h2>
+		</header>
+
+		<h2>Your address</h2>
+		<label>
+			<span>Street address</span>
+			<input name="address-street" required autofocus
+			       placeholder="e.g. 105 Amber Lane" />
+		</label>
+		<label>
+			<span>Town</span>
+			<input name="address-town" placeholder="e.g. High Edge" />
+		</label>
+		<label>
+			<span>City</span>
+			<input name="address-city" placeholder="e.g. Derby" />
+		</label>
+		<label>
+			<span>County</span>
+			<input name="address-county" placeholder="e.g. Derbyshire" />
+		</label>
+		<label>
+			<span>Postcode</span>
+			<input name="address-postcode" data-validation="postcode" required
+			       placeholder="e.g. DE56 2GB" />
+		</label>
+	</section>
+	<section>
+		<header>
+			<h1>Final step</h1>
+			<h2>Another description here</h2>
+		</header>
+
+		<label>
+			<span>Your programming abilities</span>
+		</label>
+		<div class="multi">
+			<label>
+				<input type="checkbox" name="programming[]" value="php" />
+				<span>PHP</span>
+			</label>
+			<label>
+				<input type="checkbox" name="programming[]" value="c-sharp" />
+				<span>C#</span>
+			</label>
+			<label>
+				<input type="checkbox" name="programming[]" value="java" />
+				<span>Java</span>
+			</label>
+			<label>
+				<input type="checkbox" name="programming[]" value="python" />
+				<span>Python</span>
+			</label>
+			<label>
+				<input type="checkbox" name="programming[]" value="c" />
+				<span>C / C++</span>
+			</label>
+			<label>
+				<input type="checkbox" name="programming[]" value="ruby" />
+				<span>Ruby</span>
+			</label>
+		</div>
+	</section>
 
 	<footer>
 		<button name="do" value="submit">
-			<span>Submit</span>
+			<span>Next</span>
 		</button>
 	</footer>
 </form>

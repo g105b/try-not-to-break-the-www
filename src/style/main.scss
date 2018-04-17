@@ -1,3 +1,5 @@
+$col-positive: desaturate(lime, 60%);
+
 html, body {
 	height: 100%;
 }
@@ -25,45 +27,100 @@ header {
 }
 
 footer {
-	padding-top: 2rem;
 	text-align: center;
 
 	button {
 		position: relative;
-		display: block;
 		margin: 0 auto;
-		width: 3rem;
 		height: 3rem;
 		color: white;
-		border: none;
+		border: 4px solid $col-positive;
 		border-radius: 3rem;
-		background: desaturate(lime, 60%);
+		background: $col-positive;
+		line-height: 1.5rem;
+		cursor: pointer;
 
-		&::before {
+		&:hover {
+			background: lighten($col-positive, 10%);
+		}
+		&:active {
+			outline: none;
+			background: darken($col-positive, 10%);
+		}
+
+		&::after {
 			position: relative;
 			content: "➤";
 			font-size: 1rem;
+			padding: 0 0.5rem;
 		}
 		&:not(.validation-status) {
-			&::before {
-				left: 1px;
+			&::after {
 			}
 		}
 
 		.validation-success {
-			&::before {
+			&::after {
 				content: "✔";
 			}
 		}
 		.validation-error {
-			&::before {
+			&::after {
 				content: "✘";
 			}
 		}
 		>span {
-			display: none;
+			padding-left: 0.5rem;
 		}
 
+	}
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+
+	&::after {
+		content: "Step " attr(data-section-step) " of " attr(data-section-step-count);
+		display: block;
+		padding: 2rem;
+		font-size: 0.7rem;
+		text-align: center;
+	}
+
+	>label {
+		display: block;
+		margin: 1rem 0;
+
+		>span {
+			display: block;
+			font-size: 0.8rem;
+			font-weight: bold;
+			padding: 0.5rem;
+		}
+	}
+
+	.multi {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 2rem;
+
+		label {
+			width: 50%;
+			cursor: pointer;
+
+			&:hover {
+				color: black;
+			}
+
+			input {
+				display: inline;
+				width: auto;
+			}
+
+			span {
+			}
+		}
 	}
 }
 
@@ -73,15 +130,6 @@ form {
 	background: #fff;
 	border: 1px solid rgba(darkblue, 0.2);
 	border-radius: 4px;
-}
-
-label {
-	>span {
-		display: block;
-		font-size: 0.8rem;
-		font-weight: bold;
-		padding: 0.5rem;
-	}
 }
 
 input {
@@ -97,4 +145,13 @@ input {
 	&:hover, &:focus {
 		border-color: rgba(blue, 0.5);
 	}
+}
+
+input.invalid {
+	background: lighten(red, 48%);
+	border-color: red;
+}
+.invalid-message {
+	padding-bottom: 0;
+	color: red;
 }
