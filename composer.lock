@@ -555,12 +555,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PhpGt/Session.git",
-                "reference": "01b6bead69da01f85a171f69f8a28b44fdb80249"
+                "reference": "7bf737a5c5492c4f3ef42dc90df887cb8283b808"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PhpGt/Session/zipball/01b6bead69da01f85a171f69f8a28b44fdb80249",
-                "reference": "01b6bead69da01f85a171f69f8a28b44fdb80249",
+                "url": "https://api.github.com/repos/PhpGt/Session/zipball/7bf737a5c5492c4f3ef42dc90df887cb8283b808",
+                "reference": "7bf737a5c5492c4f3ef42dc90df887cb8283b808",
                 "shasum": ""
             },
             "require": {
@@ -580,7 +580,7 @@
                 "MIT"
             ],
             "description": "Encapsulated user sessions.",
-            "time": "2018-04-17T21:05:05+00:00"
+            "time": "2018-04-20T15:25:55+00:00"
         },
         {
             "name": "phpgt/webengine",
@@ -588,12 +588,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PhpGt/WebEngine.git",
-                "reference": "26ed5bc7523a44cd48b1959d8e15ccdb8c851f6f"
+                "reference": "e63500b765c1e60fc89b6de1427c93da807b5e1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PhpGt/WebEngine/zipball/26ed5bc7523a44cd48b1959d8e15ccdb8c851f6f",
-                "reference": "26ed5bc7523a44cd48b1959d8e15ccdb8c851f6f",
+                "url": "https://api.github.com/repos/PhpGt/WebEngine/zipball/e63500b765c1e60fc89b6de1427c93da807b5e1d",
+                "reference": "e63500b765c1e60fc89b6de1427c93da807b5e1d",
                 "shasum": ""
             },
             "require": {
@@ -644,7 +644,7 @@
                 "webengine",
                 "webservice"
             ],
-            "time": "2018-04-16T18:39:32+00:00"
+            "time": "2018-04-17T21:07:23+00:00"
         },
         {
             "name": "psr/http-message",
@@ -861,12 +861,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/assert.git",
-                "reference": "0df1908962e7a3071564e857d86874dad1ef204a"
+                "reference": "23bf61bc8a7cc229d7ce8689b1bf818a9e192cac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/0df1908962e7a3071564e857d86874dad1ef204a",
-                "reference": "0df1908962e7a3071564e857d86874dad1ef204a",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/23bf61bc8a7cc229d7ce8689b1bf818a9e192cac",
+                "reference": "23bf61bc8a7cc229d7ce8689b1bf818a9e192cac",
                 "shasum": ""
             },
             "require": {
@@ -903,7 +903,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2018-01-29T19:49:41+00:00"
+            "time": "2018-04-19T15:46:26+00:00"
         },
         {
             "name": "webmozart/glob",

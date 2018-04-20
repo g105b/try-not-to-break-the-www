@@ -12,7 +12,7 @@ class Validator {
 	}
 
 	public function validate(InputData $data) {
-		$this->validateRequired($data);
+		$this->validateRequiredFields($data);
 	}
 
 	protected function findRequiredFields(Element $form) {
@@ -22,13 +22,14 @@ class Validator {
 		}
 	}
 
-	protected function validateRequired(InputData $data):void {
+	protected function validateRequiredFields(InputData $data):void {
 		$requiredFieldsMissing = [];
 		foreach($this->requiredFields as $requirement) {
 			if(!$data->hasValue($requirement)) {
 				$requiredFieldsMissing [] = $requirement;
 			}
 		}
+
 		if(!empty($requiredFieldsMissing)) {
 			throw new RequiredDataValidationException(
 				"Not all required fields are present",

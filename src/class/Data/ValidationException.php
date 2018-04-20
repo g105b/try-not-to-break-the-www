@@ -4,6 +4,8 @@ namespace App\Data;
 use RuntimeException;
 
 abstract class ValidationException extends RuntimeException {
+	const VALIDATION_TYPE = "invalid";
+
 	/** @var string[] */
 	protected $fields;
 
@@ -14,5 +16,9 @@ abstract class ValidationException extends RuntimeException {
 
 	public function getInvalidFields():array {
 		return $this->fields;
+	}
+
+	public function getValidationType():string {
+		return static::VALIDATION_TYPE;
 	}
 }

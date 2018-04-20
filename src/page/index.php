@@ -2,6 +2,7 @@
 namespace App\Page;
 
 use App\Data\RequiredDataValidationException;
+use App\Data\ValidationException;
 use App\Data\Validator;
 use Gt\Dom\NodeList;
 use Gt\Dom\Element;
@@ -9,7 +10,7 @@ use Gt\Input\InputData\InputData;
 
 class IndexPage extends \Gt\WebEngine\Logic\Page {
 	const INVALID_MESSAGE = [
-		"required" => "This field is required",
+		"required" => "Please fill out this field",
 	];
 
 	public function go() {
@@ -21,10 +22,12 @@ class IndexPage extends \Gt\WebEngine\Logic\Page {
 			$this->session->get("section") ?? 0
 		);
 		$this->setSectionStepCounts($sectionList);
-		$this->populateForm($form);
 
 		$this->input->do("submit")
 			->call([$this, "handleSubmit"], $form);
+
+		$this->populateForm($form);
+		$this->markRequiredFields($form);
 	}
 
 	public function handleSubmit(InputData $data, Element $form):void {
@@ -35,16 +38,16 @@ class IndexPage extends \Gt\WebEngine\Logic\Page {
 		try {
 			$validator->validate($data);
 		}
-		catch(RequiredDataValidationException $exception) {
+		catch(ValidationException $exception) {
 			foreach($exception->getInvalidFields() as $field) {
-				$this->markInvalidField($form, $field, "required");
+				$this->markInvalidField(
+					$form,
+					$field,
+					$exception->getValidationType()
+				);
 			}
 
-		}
-		catch(DataFormatValidationException $exception) {
-		}
-		finally {
-//			$this->reload();
+			return;
 		}
 
 		$this->session->set("section", $sectionIndex + 1);
@@ -84,7 +87,7 @@ class IndexPage extends \Gt\WebEngine\Logic\Page {
 		$invalidMessage = $form->ownerDocument->createElement("span");
 		$invalidMessage->classList->add("invalid-message");
 		$invalidMessage->innerText = self::INVALID_MESSAGE[$type];
-		$element->before($invalidMessage);
+		$element->after($invalidMessage);
 	}
 
 	protected function populateForm(Element $form) {
@@ -108,5 +111,11 @@ class IndexPage extends \Gt\WebEngine\Logic\Page {
 		}
 
 		$this->session->set("section-data", $sectionData);
+	}
+
+	protected function markRequiredFields(Element $form):void {
+		foreach($form->querySelectorAll("[required]") as $requiredField) {
+			$requiredField->closest("label")->classList->add("required");
+		}
 	}
 }
